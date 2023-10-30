@@ -1,6 +1,6 @@
-## Getting Started
+## Java v16
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This project uses Java v16. If there are any issues in launch, please make sure you are running v16.
 
 ## Folder Structure
 

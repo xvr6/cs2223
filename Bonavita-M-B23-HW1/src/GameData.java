@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class GameData {
     private HashMap<String, Integer> colors = new HashMap<>();
+    private int turn = 1;
 
     /**
      * Constructor for GameData with the default values of 3 green, 7 yellow, and 5 orange.
@@ -12,7 +13,7 @@ public class GameData {
         this.colors.put("O", 5);
     }
 
-     /**
+    /**
       * Constructor for GameData with custom values.
       * @param g the number of green markers
       * @param y the number of yellow markers
@@ -24,12 +25,20 @@ public class GameData {
         this.colors.put("O", o);
     }
 
+    /**
+     * Gets the turn number
+     * @return the turn number
+     */
+    public int turnNumber(){
+        return this.turn;
+    }
+
    /**
     * Creates a string for displaying in the console.
     * @return a string of the current state of the game.
     */
     public String stringify(){
-        return String.format("Green: %d, Yellow: %d, Orange: %d", this.colors.get("G"), this.colors.get("Y"), this.colors.get("O"));
+        return String.format("There are currently %d Green, %d Yellow, and %d Orange markers.", this.colors.get("G"), this.colors.get("Y"), this.colors.get("O"));
     }
 
     /**
@@ -37,53 +46,38 @@ public class GameData {
      * @param c the color of the markers you wish to get the quantity of.
      * @return the ammount of markers in that specific color.
      */
-    public int getColor(String c){
+    public int getMarkers(String c){
         return this.colors.get(c);
     }
 
     /**
-     * Gets the number of green markers.
-     * @return the number of green markers.
+     * Gets the name of the color based off of its abbreviation.
+     * @param s the color you wish to get the name of.
+     * @return the name of the color.
      */
-    public Integer g(){
-        return this.colors.get("G");
-    }
-    
-    /**
-     * Gets the number of yellow markers.
-     * @return the number of yellow markers.
-     */
-    public Integer y(){
-        return this.colors.get("Y");
-    }
-
-    /**
-     * Gets the number of orange markers.
-     * @return the number of orange markers.
-     */
-    public Integer o(){
-        return this.colors.get("O");
+    public String getName(String s){
+        switch(s){
+            case "G":
+                return "Green";
+            case "Y":
+                return "Yellow";
+            case "O":
+                return "Orange";
+            default:
+                return "Invalid color";
+        }
     }
 
     /**
      * Removes from the specified color, the specified ammount of markers.
      * @param color the color of the markers you wish to remove.
      * @param ammount the number of markers you wish to remove from that color.
-     * @throws TooBigException when you try to remove more markers than there are.
-     * @throws TooSmallException when you try to remove non-positive ammount of number of markers.
-     * @throws ZeroTokensException when you try to remove from a color that has no markers.
      */
+    public void removeValue(Boolean isPlayer, String color, Integer ammount) {
+        this.turn++;
+        this.colors.put(color, this.colors.get(color) - ammount);
+        String player = isPlayer ? "You have" : "The computer has";
+        System.out.println(String.format("%s removed %d %s markers. \n", player, ammount, this.getName(color)));
 
-    public void changeValue(String color, Integer ammount) {
-        if(this.colors.get(color) == 0){
-            throw new ZeroTokensException(color);
-        } else if (ammount <= 0) {
-            throw new TooSmallException(ammount);
-        } else if(this.colors.get(color) < ammount){
-            throw new TooBigException(this.colors.get(color), ammount, color);
-        } else {
-            this.colors.put(color, this.colors.get(color) - ammount);
-        }
     }
-
 }
