@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Game {
     private static GameData gameData;
-    private static Scanner text = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
     static Random ran = new Random();
 
     public static void main(String[] args) {
@@ -14,17 +14,18 @@ public class Game {
     private static void newGame(){ // creates a new game.
         gameData = new GameData(); // initalize the GameData object.
         System.out.println("Do you wish to go first? [Y/N]");
-        switch (text.nextLine().toUpperCase()){
-            case "Y":
-                playerTurn();
-                break;
-            case "N":
-                computerTurn();
-                break;
-                //possibly add new imput D for debugging, and a 4th input for computer v computer.
-            default:
-                System.out.println("Invalid input");
-                newGame();
+        while(true){ //wait until input is valid.
+            switch (in.nextLine().toUpperCase()){
+                case "Y":
+                    playerTurn();
+                    break;
+                case "N":
+                    computerTurn();
+                    break;
+                    //possibly add new imput D for debugging, and a 4th input for computer v computer.
+                default:
+                    System.out.println("Invalid input");
+            }
         }
     }
 
@@ -42,7 +43,7 @@ public class Game {
             System.out.println(gameData.stringify()); //display the current state of the game.
             while(true){ //wait until input is valid.
                 System.out.println("What marker set would you like to take from ([G]reen, [Y]ellow or [O]range)");
-                removeColor = text.nextLine().toUpperCase();
+                removeColor = in.nextLine().toUpperCase();
                 if(removeColor.equals("G") || removeColor.equals("Y") || removeColor.equals("O")){
                     if(gameData.getMarkers(removeColor) != 0){ 
                         break;
@@ -56,7 +57,7 @@ public class Game {
             while(true){ //wait until input is valid.
                 System.out.println(String.format("How many of the colors marker would you like to remove? (up to %d)", gameData.getMarkers(removeColor)));
                 try { //try to parse the input as an integer.
-                    ammount = Integer.parseInt(text.nextLine());
+                    ammount = Integer.parseInt(in.nextLine());
                 } catch (NumberFormatException e) { //means this is not an integer input.
                     System.out.println("Please enter a valid integer!");
                     continue;
@@ -76,7 +77,6 @@ public class Game {
             computerTurn();
 
         }
-
     }
 
 
@@ -116,8 +116,7 @@ public class Game {
                     randomComputerTurn();
                 }
             }
-        }
-        
+        }  
     }
 
     private static void randomComputerTurn(){
@@ -136,18 +135,13 @@ public class Game {
     }
 
     private static void playAgain(){
-        System.out.println("Would you like to play again? [Y/N]");
-        switch (text.nextLine().toUpperCase()){
-            case "Y":
-                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting the new game....");
-                newGame();
-                break;
-            case "N":
-                System.exit(0);
-                break;
-            default:
-                System.exit(0);
-                break;
+        System.out.println("Would you like to play again? [Y/<any>]");
+        String input = in.nextLine().toUpperCase();
+        if(input.equals("Y")){
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting the new game...");
+            newGame();
+        } else {
+            System.exit(0);
         }
     }
 }
