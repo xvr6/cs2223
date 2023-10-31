@@ -6,8 +6,12 @@ As a general note, I will be using Java v16 for all projects.
 ## Folder Structure
 
 Within these folders, a seperate README will exist with more detailed requirements and explinations.
-- `HW1_Nim`: This folder contains all files dedicated to the mathmatical number game Nim.
-- `lib`: the folder to maintain dependencies
+- `HW1`: This folder contains all files dedicated to the mathmatical number game Nim.
+- `HW2`:
+- `HW3`:
+- `HW4`:
+- `HW5`:
+- `HW6`:
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
