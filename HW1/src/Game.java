@@ -13,13 +13,13 @@ public class Game {
     
     private static void newGame(){ // creates a new game.
         gameData = new GameData(); // initalize the GameData object.
-        System.out.println("Do you wish to go first? [Y/N]");
+        System.out.println("Do you wish to go first, or do you want the computer to do a random turn? [P/C]");
         while(true){ //wait until input is valid.
             switch (in.nextLine().toUpperCase()){
-                case "Y":
+                case "P":
                     playerTurn();
                     break;
-                case "N":
+                case "C":
                     computerTurn();
                     break;
                     //possibly add new imput D for debugging, and a 4th input for computer v computer.
@@ -91,11 +91,12 @@ public class Game {
         } else {
             int nimSum = g ^ y ^ o;
 
-            if(gameData.turnNumber() == 1) {
+            if(gameData.turnNumber() == 1) { 
+                // if it is the computers first turn, it will remove a random ammount from a random color.
+                // 
                 randomComputerTurn();
             } else {
                 if(nimSum != 0){
-
                     while(true){
                         if(g != 0 && (g ^ nimSum) < g){
                             gameData.removeValue(false, "G", g - (g ^ nimSum));
@@ -106,7 +107,7 @@ public class Game {
                         } else if(o != 0 && (o ^ nimSum) < o){
                             gameData.removeValue(false, "O", o - (o ^ nimSum));
                             break;
-                        } else {
+                        } else { // decreases ammount to be removed if it is too high.
                             nimSum = nimSum >> 1;
                         }
                     }
