@@ -8,6 +8,7 @@ This project uses Java v16. If there are any issues in launch, please make sure 
 - The user will be prompted to select if they wish to go first, or to let the computer go first.
 - When the computer is in a loosing position/its first turn, it will make a random, non-zero move.
 - When the computer is in a winning positiion/not in a zero position (its calculated nimsum of g^y^o != 0), it will make a caltulated best move.
+- This calculated best move will be whatever removal can bring the nimsum back to a 0 position.
 - When it is the players turn, they will be prompted for a color, then the ammount of that color they wish to remove via the console.
 - Once each of the markers are gone, the player who removed the last marker is considered the winner. 
 - They are then prompted to restart the game, or to quit.

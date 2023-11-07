@@ -1,19 +1,17 @@
 ## WPI CS2223-B23 - Algorithms
 
-This repository serves as my personal archive of all projects done for the algorithms course at WPI.
-As a general note, I will be using Java v16 for all projects.
+This repository serves as my personal archive of all projects done for the Algorithms course at WPI.
+As a general note, I will be using Java v16 for all projects unless otherwise specified.
 
 ## Folder Structure
 
 Within these folders, a seperate README will exist with more detailed requirements and explinations.
-- `HW1`: This folder contains all files dedicated to the mathmatical number game Nim.
-- `HW2`:
+- `HW1`: This folder contains files dedicated to the mathmatical number game Nim.
+- `HW2`: This folder contains files dedicated to the Numerical series Lucas Numbers.
 - `HW3`:
 - `HW4`:
 - `HW5`:
 - `HW6`:
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
 > If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
