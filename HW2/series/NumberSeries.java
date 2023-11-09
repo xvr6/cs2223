@@ -19,26 +19,12 @@ public class NumberSeries {
      * @return The nth number in the series.
      */
     public double calculate(double n) {
-        if (n < 1) {
-            throw new IllegalArgumentException("n must be greater than or equal to 0");
-        } else {
-            return calculateHelper(n);
-        }
-
-    }
-
-    /**
-     * Helper function for calculate.
-     * @param n The number to calculate.
-     * @return The nth number in the series.
-     */
-    private double calculateHelper(double n) {
         if (n == 0) {
             return n0;
         } else if (n == 1) {
             return n1;
         } else {
-            return calculateHelper(n - 1) + calculateHelper(n - 2);
+            return calculate(n - 1) + calculate(n - 2);
         }
     }
 }

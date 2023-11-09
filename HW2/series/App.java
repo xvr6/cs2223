@@ -12,6 +12,7 @@ public class App {
         double[] fibonacci = {1d, 1d};
         NumberSeries series;
         int n;
+        String cosmetic;
 
         System.out.println("Please select a series to calculate:\n1. Lucas Series\n2. Fibonacci Series\n3. Custom Series");
 
@@ -19,12 +20,15 @@ public class App {
             switch(in.nextLine()){
                 case "1":
                     series = new NumberSeries(lucas);
+                    cosmetic = "L";
                     break;
                 case "2":
                     series = new NumberSeries(fibonacci);
+                    cosmetic = "F";
                     break;
                 case "3":
                     series = customSeriesInput();
+                    cosmetic = "C";
                     break;
                 default:
                     System.out.println("Please enter a valid selection!");
@@ -48,15 +52,23 @@ public class App {
             break;
         }
 
-        System.out.println("Would you like to [T]ime the calculation, or [C]ompare the time of successive calculations?");
+
+
+        System.out.println("Would you like to [T]ime the calculation, [S]uccessive calculation time comparison, or just to [C]alculate the number?");
         while(true){
             switch(in.nextLine().toUpperCase()){
                 case "T":
-                    Timed nCalculation = timed(series, n);
-                    System.out.println("It took: " + nCalculation.time + "ms");
+                    for(int i = 0; i <= n; i++) {
+                        System.out.println(String.format("Time(%s(%d)) took: %.0fns", cosmetic, i, timed(series, i)));
+                    }
+                    break;
+                case "S":
+                    timedSuccessive(series, n);
                     break;
                 case "C":
-                    timedSuccessive(series, n);
+                    for(int i = 0; i <= n; i++){
+                        System.out.println(String.format("%s(%d) = %.0f", cosmetic, i, Math.floor(series.calculate(i)))); 
+                    }
                     break;
                 default:
                     System.out.println("Please enter a valid selection!");
@@ -106,24 +118,24 @@ public class App {
      * @param n The number to calculate until.
      * @return A Timed object containing time, and num-value.
      */
-    private static Timed timed(final NumberSeries series, final int n){
-        long startTime = System.currentTimeMillis();
-        int calculated = (int) series.calculate(n);
-        long endTime = System.currentTimeMillis();
+    private static double timed(final NumberSeries series, final int n){
+        double startTime = System.nanoTime();
+        series.calculate(n);
+        double endTime = System.nanoTime();
 
-        return new Timed((endTime - startTime), calculated);
+        return (endTime - startTime);
     }
 
     private static void timedSuccessive(final NumberSeries series, final int n){
-        double n1Time = timed(series, n + 1).time;
+        double n1Time = timed(series, n + 1);
         System.out.println(n1Time);
 
-        double nTime = timed(series, n).time;
+        double nTime = timed(series, n);
         System.out.println(nTime);
 
         double timeRatio = n1Time / nTime;
 
-        System.out.println(String.format("The ratio of %d (%.2f) to %d (%.2f) is %.4f", (n + 1), n1Time, n, nTime, timeRatio));
+        System.out.println(String.format("The ratio of %d (%.2f ms) to %d (%.2f ms) is %.4f", (n + 1), n1Time, n, nTime, timeRatio));
 
     }
 }
