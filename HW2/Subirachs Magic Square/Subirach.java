@@ -82,6 +82,10 @@ public class Subirach {
 
     }
 
+    // https://stackoverflow.com/a/51653562/10483389
+    /*
+     * Returns the power set from the given set.
+     */
     private static int[][] powerSet() {
         List<int[]> subsetsList = new ArrayList<>();
         subsetsList.add(new int[]{});

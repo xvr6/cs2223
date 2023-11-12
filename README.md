@@ -8,7 +8,7 @@ As a general note, I will be using Java v16 for all projects unless otherwise sp
 Within these folders, a seperate README will exist with more detailed requirements and explinations.
 - `HW1`: This folder contains files dedicated to the mathmatical number game Nim.
 - `HW2`: This folder contains files dedicated to the Numerical series calculations and Subirachs Square.
-- `HW3`:
+- `HW3`: This folder contains Palindromes, Inversions, and Binary Reflected Gray Code files.
 - `HW4`:
 - `HW5`:
 - `HW6`:
