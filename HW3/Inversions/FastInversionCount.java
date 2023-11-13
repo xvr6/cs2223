@@ -1,40 +1,26 @@
-import java.util.Scanner;
 import java.util.Arrays;
 
 public class FastInversionCount {
-
+    
+    private static int[] example = {1, 2, 3, 4, 5, 6, 7, 8}; // should be 0
+    private static int[] example2 = {8, 7, 6, 5, 4, 3, 2, 1}; // should be 28
+    private static int[] example3 = {1, 3, 5, 2, 4, 6}; // should be 3
+ 
+    
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n;
-        while(true){
-            System.out.println("Enter Size of Array:");
-            try {
-                n = Integer.parseInt(in.nextLine());
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter an integer.");
-            }
-
-        }
-
-        int[] arr = new int[n];
-
-        System.out.println("\nEnter Array:");
-        for (int x = 0; x < n; x++){
-            while(true){
-                try {
-                    arr[x] = Integer.parseInt(in.nextLine());
-                    break;
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter an integer.");
-                }
-            }
-        }
-
-        System.out.println("\nInversion Count:" + mergeSort(arr, 0, arr.length - 1));
+        System.out.println(mergeSort(example, 0, example.length - 1));
+        System.out.println(mergeSort(example2, 0, example2.length - 1));
+        System.out.println(mergeSort(example3, 0, example3.length - 1));
     }
-
-    private static int mergeSort(int[] arr, int left, int right) {
+    
+    /**
+     * Counts the number of inversions in an array. Time complexity is O(nlogn).
+     * @param arr the array to count inversions in
+     * @param left the left index of the array
+     * @param right the right index of the array
+     * @return the number of inversions in the array
+     */
+    public static int mergeSort(int[] arr, int left, int right) {
         int countInv = 0;
         if (left < right) {
             int mid = (left + right) / 2;
@@ -52,7 +38,10 @@ public class FastInversionCount {
         int[] leftArr = Arrays.copyOfRange(arr, left, mid + 1);
         int[] rightArr = Arrays.copyOfRange(arr, mid + 1, right + 1);
 
-        int i = 0, j = 0, k = left, swaps = 0;
+        int i = 0;
+        int j = 0;
+        int k = left;
+        int swaps = 0;
 
         while (i < leftArr.length && j < rightArr.length) {
             if (leftArr[i] <= rightArr[j]) {
