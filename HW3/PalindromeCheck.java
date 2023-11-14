@@ -13,6 +13,11 @@ public class PalindromeCheck {
         System.out.println("Is \"" + str + "\" a palindrome? " + isPalindrome(cleaned));
     }
 
+    /**
+     * Checks if a string is a palindrome. Time complexity is O(n).
+     * @param str the string to check
+     * @return true if the string is a palindrome, false otherwise
+     */
     public static boolean isPalindrome(String str) {
         if(str.length() <= 1) return true;
         if(str.charAt(0) != str.charAt(str.length() - 1)) return false;

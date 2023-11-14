@@ -5,18 +5,19 @@ import java.util.Collections;
 public class AlgoRhythmics {
 
     public static void main (String[] args) {
-        String[] names = {"Alfie", "Berty", "Crizz", "Dietz", "Elmer"};
+        String[] names = {"Alfie", "Berty", "Crizz", "Dietz", "Elmer", "Fleek", "Gomer"};
 
-        ArrayList<String> L = BRGC(5);
+        ArrayList<String> L = BRGC(names.length);
+        String seperator = "------------------------------------------------------------------------------------%n";
         
         //create the table
-        System.out.printf("---------------------------------------------------------------------%n");
-        System.out.printf("| %-5s | %-9s | %-30s | %-12s |%n", "Index", "Gray Code", "Players Playing", "Action");
-        System.out.printf("---------------------------------------------------------------------%n");
+        System.out.printf("" + seperator);
+        System.out.printf("| %-5s | %-9s | %-45s | %-12s |%n", "Index", "Gray Code", "Players Playing", "Action");
+        System.out.printf("" + seperator);
         for (int i = 0; i < L.size(); i++) {
-            System.out.printf("| %-5s | %-9s | %-30s | %-12s |%n", i, L.get(i), getPlayersPlaying(L.get(i), names), getAction(L, i, names));
-        }
-        System.out.printf("---------------------------------------------------------------------%n");
+            System.out.printf("| %-5s | %-9s | %-45s | %-12s |%n", i, L.get(i), getPlayersPlaying(L.get(i), names), getAction(L, i, names));
+        }   
+        System.out.printf("" + seperator);
     } 
 
     /**
@@ -49,15 +50,13 @@ public class AlgoRhythmics {
      * @return the players playing
      */
     public static String getPlayersPlaying(String grayCode, String[] names){
-        if(grayCode.equals("00000")){
-            return "SILENT STAGE";
-        }
         String playersPlaying = "";
         for (int i = 0; i < grayCode.length(); i++) {
             if (grayCode.charAt(i) == '1') {
                 playersPlaying += names[names.length - 1 - i] + " ";
             }
         }
+        if(playersPlaying.equals("")) playersPlaying = "SILENT STAGE";
         return playersPlaying;
     }
 

@@ -16,6 +16,7 @@ public class EasyInversionCount {
      * @param arr the array to count inversions in
      * @return the number of inversions in the array
      */
+    
     public static int countInversions(int[] arr) {
         int inversions = 0;
         for(int i = 0; i < arr.length; i++) {

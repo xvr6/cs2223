@@ -33,7 +33,14 @@ public class FastInversionCount {
         return countInv;
     }
 
-    // counting the inversion when merging arrays
+    /**
+     * Helper method for mergeSort. Counts the number of inversions in the array.
+     * @param arr the array to count inversions in
+     * @param left the left index of the array
+     * @param mid the middle index of the array
+     * @param right the right index of the array
+     * @return the number of inversions in the array
+     */
     private static int mergeCounterHelper(int[] arr, int left, int mid, int right) {
         int[] leftArr = Arrays.copyOfRange(arr, left, mid + 1);
         int[] rightArr = Arrays.copyOfRange(arr, mid + 1, right + 1);
