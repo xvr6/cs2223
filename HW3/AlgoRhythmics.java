@@ -21,9 +21,9 @@ public class AlgoRhythmics {
     } 
 
     /**
-     * Returns the gray code.
+     * Returns the gray codes.
      * @param n the number of players
-     * @return the gray code
+     * @return the ArrayList of gray codes
      */
     public static ArrayList<String> BRGC(int n) {
         if (n == 0) {
@@ -31,10 +31,10 @@ public class AlgoRhythmics {
             list.add("");
             return list;
         } else {
-            ArrayList<String> list = BRGC(n - 1);
+            ArrayList<String> list = BRGC(n - 1); //recursive call
             ArrayList<String> newList = new ArrayList<>(list);
-            Collections.reverse(newList);
-            for (int i = 0; i < list.size(); i++) {
+            Collections.reverse(newList); //reverse the list
+            for (int i = 0; i < list.size(); i++) { //add 0 to the front of the list and 1 to the front of the reversed list
                 list.set(i, "0" + list.get(i));
                 newList.set(i, "1" + newList.get(i));
             }

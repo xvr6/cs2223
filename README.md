@@ -6,9 +6,18 @@ As a general note, I will be using Java v16 for all projects unless otherwise sp
 ## Folder Structure
 
 Within these folders, a seperate README will exist with more detailed requirements and explinations.
-- `HW1`: This folder contains files dedicated to the mathmatical number game Nim.
-- `HW2`: This folder contains files dedicated to the Numerical series calculations and Subirachs Square.
-- `HW3`: This folder contains Palindromes, Inversions, and Binary Reflected Gray Code files.
+- `HW1`: Mathmatical number game Nim.
+    - Solved using simple bitwise opperations.
+    
+- `HW2`: Numerical series calculations and Subirachs Square.
+    - Uses simple recursion for the Numerical Series
+    - Calculates the PowerSet and sums every subset to calculate  
+
+- `HW3`: Palindromes, Inversions, and Binary Reflected Gray Codes (BRGCs) files.
+    - Palindromes - Recursively calls a substring function until the beginning and end are not the same, or the length is =< 1
+    - Inversions - Uses sorting algorithms to detect the ammount of inversions in the 
+    - BRGCs - Uses a binary number generation algorithm to create a PowerSet.
+
 - `HW4`:
 - `HW5`:
 - `HW6`:
