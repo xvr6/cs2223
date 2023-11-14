@@ -1,7 +1,3 @@
-## Java v16
-
-This project uses Java v16. If there are any issues in launch, please make sure you are running v16.
-
 ## Specifications
 
 - Upon running main in `src/Game.java`, a game of Nim with 3 green, 7 yellow and 5 orange will be played.
