@@ -17,7 +17,7 @@ public class App {
         }
 
         int[] arr = new int[n];
-        System.out.println("\nEnter your array:\nPlease note that the array will sort from least to greatest.");
+        System.out.println("\nEnter your array:\nPlease note that the algorithm will detect inversions in least to greatest.");
         for (int x = 0; x < n; x++){ // prompt for each element of the array.
             while(true){
                 try {

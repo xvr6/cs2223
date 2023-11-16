@@ -14,7 +14,7 @@ public class PalindromeCheck {
     }
 
     /**
-     * Checks if a string is a palindrome. Time complexity is O(n).
+     * Checks if a string is a palindrome. Time complexity is O(n/2).
      * @param str the string to check
      * @return true if the string is a palindrome, false otherwise
      */
