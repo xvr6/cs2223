@@ -43,6 +43,7 @@ public class PathFinder {
                     int i = col + (offset - 1);
 
                     if (i >= 0 && i < summatedMap[0].length) {
+                                         //1 row down, 1 col left/right
                         posMaxes[offset] = summatedMap[row + 1][i];
                     }
                 }

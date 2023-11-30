@@ -17,11 +17,11 @@ Within these folders, a seperate README will exist with more detailed requiremen
     - Inversions - Uses sorting algorithms to detect the ammount of inversions in the 
     - BRGCs - Uses a binary number generation algorithm to create a PowerSet.
 
-- `HW4`:
+- `HW4`: Gauss-Jordan Elimination & Dynamic Programming
     - 
 
 - `HW5`:
     - 
 
-- `HW6`:
+- `HW6`: Backtracking and the N-Queens Problem
     - 
