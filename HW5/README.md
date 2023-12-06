@@ -1,9 +1,7 @@
 # HW5 - Closed Hashing and Dijkstra's Algorithm
-> [!Note] `./txts`
-> This folder contains all the text files referenced in the sections below.
 
 ## `./Hashing`
-- Using a Closed Hashing/Open Addressing algorithm, hashes `Moby-Dick-Chapter-1-groomed.txt` into a 997 length table.
+- Using a Closed Hashing/Open Addressing algorithm, hashes `./txts/Moby-Dick-Chapter-1-groomed.txt` into a 997 length table.
 - Once the file is hashed, calculates and prints out information about the HashTable:
     - Distinct entry count and the count of which land and in their correct spot
     - Open cells count and the load factor (alpha) associated with this
@@ -14,5 +12,5 @@
 
 ## `./Dijkstras`
 - Prompts the user to enter the beginning and end location they wish to travel between on a weighted graph
-- This graph is represented `DijkstrasAlgorithmDataB23.txt` as a square matrix, though an image version can be found [here](https://imgur.com/a/x91fwL0)
+- This graph is represented `./txts/DijkstrasAlgorithmDataB23.txt` as a square matrix, though an image version can be found [here](https://imgur.com/a/x91fwL0)
 - Using Dijkstras algorithm, finds the shortest path between the two given locations and prints out the path, and its length.
