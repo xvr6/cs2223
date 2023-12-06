@@ -9,8 +9,7 @@ public class ReadMatrix {
      * @param filename the file to parse
      * @param regexFilter the regex to filter out seperators
      * @return a 2d array of the matrix
-     * @throws Exception if the file is invalid
-     */
+\     */
     public static int[][] parseSquareMatrix(String filename, String regexFilter) {
         ArrayList<Integer> values = new ArrayList<>();
 

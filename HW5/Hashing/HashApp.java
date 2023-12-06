@@ -9,6 +9,10 @@ public class HashApp {
 		hashTable(words);
 	}
 	
+	/**
+	 * Generates the Hashtable object
+	 * @param words the parsed words from the file
+	 */
 	private static void hashTable(ArrayList<String> words){
 		HashTable ht = new HashTable(997);
 		for (String word : words) {

@@ -14,3 +14,4 @@
 - Prompts the user to enter the beginning and end location they wish to travel between on a weighted graph
 - This graph is represented `./txts/DijkstrasAlgorithmDataB23.txt` as a square matrix, though an image version can be found [here](https://imgur.com/a/x91fwL0)
 - Using Dijkstras algorithm, finds the shortest path between the two given locations and prints out the path, and its length.
+- Easter Egg found when checking the shortest path from 9-0 (the shortest path spells out Dijkstra)
