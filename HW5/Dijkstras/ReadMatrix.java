@@ -11,10 +11,10 @@ public class ReadMatrix {
      * @return a 2d array of the matrix
      * @throws Exception if the file is invalid
      */
-    public static int[][] parseSquareMatrix(String filename, String regexFilter) throws Exception {
+    public static int[][] parseSquareMatrix(String filename, String regexFilter) {
         ArrayList<Integer> values = new ArrayList<>();
 
-        BufferedReader br = new BufferedReader(new FileReader(filename));
+        try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if(!line.isEmpty()){
@@ -28,10 +28,12 @@ public class ReadMatrix {
                     }
                 }
             }
-        br.close();
+        } catch (Exception e) {
+            System.err.println("Invalid file");
+        }
 
         // Convert into a 2d array
-        int size = (int) Math.sqrt(values.size()); // since its a qaure matrix, will always be n^2 entries.
+        int size = (int) Math.sqrt(values.size()); // since its a sqaure matrix, will always be n^2 entries.
         int[][] matrix = new int[size][size];
         for (int i = 0; i < values.size(); i++) {
             int row = i / size;

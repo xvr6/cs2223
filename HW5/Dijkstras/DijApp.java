@@ -4,30 +4,25 @@ import java.util.Arrays;
 public class DijApp {
 
     public static void main(String[] args) {
-        try {
-            final int[][] matrix = ReadMatrix.parseSquareMatrix("./HW5/txts/DijkstrasAlgorithmDataB23.txt", "[^0-9]");
-            
-            // Prompt for starting and ending position
-            Scanner input = new Scanner(System.in);
+        final int[][] matrix = ReadMatrix.parseSquareMatrix("./HW5/txts/DijkstrasAlgorithmDataB23.txt", "[^0-9]");
+        
+        // Prompt for starting and ending position
+        Scanner input = new Scanner(System.in);
 
-            System.out.println("Enter a starting and ending location (0-9)");
-            int start = input.nextInt();
-            int end = input.nextInt();
-            input.close();
+        System.out.println("Enter a starting and ending location (0-9)");
+        int start = input.nextInt();
+        int end = input.nextInt();
+        input.close();
 
-            System.out.printf("The shortest path from '%s' (index: %d) to '%s' (index: %d) is:\n",  indexToEntry(start), start, indexToEntry(end), end);
-            int[] path = dijkstra(matrix, start, end);
-            
-            for(int i = path.length - 1; i >= 0; i--){
-                int cur = path[i];
-                if(cur != -1) System.out.printf("%s (%d), ", indexToEntry(cur), cur);
-            }
-            System.out.print("| Length of: " + getPathLength(matrix, path));
-            
-
-        } catch (Exception e) {// invalid file
-            System.err.println(e.getMessage());
+        System.out.printf("The shortest path from '%s' (index: %d) to '%s' (index: %d) is:\n",  indexToEntry(start), start, indexToEntry(end), end);
+        int[] path = dijkstra(matrix, start, end);
+        
+        for(int i = path.length - 1; i >= 0; i--){
+            int cur = path[i];
+            if(cur != -1) System.out.printf("%s (%d), ", indexToEntry(cur), cur);
         }
+        System.out.print("| Length of: " + getPathLength(matrix, path));
+        
     }
     /**
      * Calculates the sortest path between 2 entries in a square matrix representation of a weighted graph

@@ -20,7 +20,7 @@ Within these folders, a seperate README will exist with more detailed requiremen
 - `HW4`: Gauss-Jordan Elimination & Dynamic Programming
     - 
 
-- `HW5`:
+- `HW5`: Closed Hashing and Dijkstra's Algorithm
     - 
 
 - `HW6`: Backtracking and the N-Queens Problem
