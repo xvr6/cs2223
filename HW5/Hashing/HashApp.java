@@ -1,12 +1,17 @@
 import java.util.ArrayList;
 import java.util.Map;
 
-public class App {
+public class HashApp {
 	private static final String regexFilter = "[^'\\-A-Za-z]";
 
 	public static void main(String[] args) {
-		ArrayList<String> words = ReadFile.parseWords("./HW5/txts/Moby-Dick-Chapter-1-groomed.txt", regexFilter);
-		hashTable(words);
+		try {
+			ArrayList<String> words = ReadFile.parseWords("./HW5/txts/Moby-Dick-Chapter-1-groomed.txt", regexFilter);
+			hashTable(words);
+
+		} catch (Exception e) { //invalid file.
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	private static void hashTable(ArrayList<String> words){

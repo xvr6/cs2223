@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 
 public class ReadFile {
-    public static ArrayList<String> parseWords(String filename, String regexFilter) {
+    public static ArrayList<String> parseWords(String filename, String regexFilter) throws Exception {
         ArrayList<String> words = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        BufferedReader br = new BufferedReader(new FileReader(filename));
             String line;
             while ((line = br.readLine()) != null) {
 
@@ -27,10 +27,6 @@ public class ReadFile {
                     }
                 }
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
         return words;
     }
 }
