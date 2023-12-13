@@ -10,7 +10,7 @@ public class HashApp {
 	}
 	
 	/**
-	 * Generates the Hashtable object
+	 * Generates the Hashtable object and prints out information
 	 * @param words the parsed words from the file
 	 */
 	private static void hashTable(ArrayList<String> words){

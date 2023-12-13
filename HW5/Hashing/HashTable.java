@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Collections;
 
 public class HashTable {
 	private final int SIZE;

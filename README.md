@@ -18,10 +18,12 @@ Within these folders, a seperate README will exist with more detailed requiremen
     - BRGCs - Uses a binary number generation algorithm to create a PowerSet.
 
 - `HW4`: Gauss-Jordan Elimination & Dynamic Programming
-    - 
+    - Uses the  Gauss Jordan Elimination technique to solve a 2d matrix. 
+    - A greedy backtrack algorithm to find an optimal path in a 2d matrix.
 
 - `HW5`: Closed Hashing and Dijkstra's Algorithm
-    - 
+    - Using a Closed Hashing/Open Addressing algorithm, hashes `./txts/Moby-Dick-Chapter-1-groomed.txt` into a 997 length table.
+    - Prompts the user to enter the beginning and end location they wish to travel between on a hardcoded weighted graph and finds the shortest path.
 
 - `HW6`: Backtracking and the N-Queens Problem
     - 

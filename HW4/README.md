@@ -15,4 +15,3 @@
 - Begins by collecting the gems on a square in Row 1, and then advances to the next Row.
 - The space directly ahead of the current chosen, or diagnally to the left or right is a viable choice (assuming it exists).
 - Collects the gems from the newly-visited square, and repeats the process until collecting gems from row 8
-
