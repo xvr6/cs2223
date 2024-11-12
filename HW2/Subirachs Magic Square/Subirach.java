@@ -82,7 +82,6 @@ public class Subirach {
 
     }
 
-    // https://stackoverflow.com/a/51653562/10483389
     /*
      * Returns the power set from the given set.
      */
